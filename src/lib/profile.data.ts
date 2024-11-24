@@ -1,5 +1,6 @@
 import { Experience, experiences } from "@/lib/experiences.data";
-import { Project, projects } from "@/lib/projects.data";
+import { Project } from "@/lib/project.type";
+import { projects } from "@/lib/projects.data";
 import { School, schools } from "@/lib/schools.data";
 import { Skill, skills } from "@/lib/skills.data";
 

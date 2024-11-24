@@ -1,23 +1,4 @@
-export type ProjectCategory = "web" | "videogame" | "software" | "mobile";
-
-export type Project = {
-  id: number;
-  skillsid: number[];
-  name: string;
-  image: string;
-  content: {
-    fr: string;
-    en: string;
-  };
-  time: string;
-  description: {
-    fr: string;
-    en: string;
-  };
-  category: ProjectCategory;
-  live: string | null;
-  images?: string[];
-};
+import { Project } from "@/lib/project.type";
 
 export const projects: Project[] = [
   {
@@ -35,7 +16,6 @@ export const projects: Project[] = [
       en: 'A fan art of the video game "The Legend of Zelda" with a musical component allowing you to play songs using key combinations.',
     },
     category: "web",
-    live: null,
   },
   {
     id: 2,
@@ -52,7 +32,6 @@ export const projects: Project[] = [
       en: "A website for a Polish music artist to present their news, albums, photos, partners, fan messages and contact form.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 3,
@@ -69,7 +48,6 @@ export const projects: Project[] = [
       en: "A calculator application capable of converting numbers between binary, decimal and hexadecimal bases with a design inspired by the Google Calculator.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 4,
@@ -86,7 +64,6 @@ export const projects: Project[] = [
       en: "A self-employed company offering website creation services and private lessons in IT development.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 5,
@@ -103,7 +80,6 @@ export const projects: Project[] = [
       en: "A complete CMS to easily create a standard forum with administration management features.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 6,
@@ -120,7 +96,6 @@ export const projects: Project[] = [
       en: "A CMS to quickly create online store sites with features such as product voting and user management.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 7,
@@ -137,7 +112,6 @@ export const projects: Project[] = [
       en: "A display solution on a television to follow the HD PRE-DIAGNOSTIC software, developed by you during an internship at HD Automatisme.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 8,
@@ -154,7 +128,6 @@ export const projects: Project[] = [
       en: "A quiz game with three variants and three difficulty levels on the theme of plants and gardens.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 9,
@@ -171,7 +144,6 @@ export const projects: Project[] = [
       en: "A video game inspired by Pokemon, made during my first year of study, with a map editor included.",
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 10,
@@ -243,7 +215,6 @@ export const projects: Project[] = [
       en: "A web application to manage class assignments centrally, allowing teachers to create a shared textbook.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 14,
@@ -261,7 +232,6 @@ export const projects: Project[] = [
       en: "A website to present video game projects, books and news from your video game studio.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 15,
@@ -279,7 +249,6 @@ export const projects: Project[] = [
       en: "An online training platform for video game development professions, offering varied courses and strict selection criteria for students.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 16,
@@ -296,7 +265,6 @@ export const projects: Project[] = [
       en: "Creation of a centralized API to manage connections, purchases and wallet management of virtual currency for JDO-Univers studio projects, with particular attention to security and ease of use .",
     },
     category: "web",
-    live: null,
   },
   {
     id: 17,
@@ -314,7 +282,6 @@ export const projects: Project[] = [
       en: "Development of a mobile application allowing you to play an informal game of collecting crowns, with features such as connection via Twitter or email, management of game sessions, and monitoring of game statistics. ",
     },
     category: "mobile",
-    live: null,
   },
   {
     id: 18,
@@ -332,7 +299,6 @@ export const projects: Project[] = [
       en: "Creation of a centralized project management platform for the JDO-Univers studio, including features such as creating Readme pages, adding contractor requests, and liaising with the JDO Academy -Universe.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 19,
@@ -349,7 +315,6 @@ export const projects: Project[] = [
       en: "Development of a website for a friend named Jules, allowing the management of news, resources, comments, and offering a professional presentation on the Internet.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 20,
@@ -366,7 +331,6 @@ export const projects: Project[] = [
       en: "Creating a user management service for lobbies and matchmaking queues in video games, with an intuitive user interface and customization features.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 21,
@@ -383,7 +347,6 @@ export const projects: Project[] = [
       en: "Development of a .NET service for automating data processing operations, including sending emails, data cleaning and GDPR compliance, using a configuration file.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 22,
@@ -400,7 +363,6 @@ export const projects: Project[] = [
       en: 'Design of a strategy video game where the player embodies an "Imperator" and makes decisions impacting the game\'s statistics, with different difficulty levels and a game data editing tool.',
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 23,
@@ -417,7 +379,6 @@ export const projects: Project[] = [
       en: "Created a tool to edit Imperator game data, including statistics, edicts, laws, and reports, to personalize the gaming experience.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 24,
@@ -452,7 +413,6 @@ export const projects: Project[] = [
       en: "Development of mailing software to group email addresses, have email templating and share access rights according to defined rules, with an emphasis on security and automation.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 26,
@@ -469,7 +429,6 @@ export const projects: Project[] = [
       en: "Creation of a software Launcher to centralize news, the video game catalog, and the video game studio's community of players, offering a fluid and frustration-free gaming experience.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 27,
@@ -487,7 +446,6 @@ export const projects: Project[] = [
       en: "An online game based on our physical card game, allowing players to compete anywhere, anytime, with virtual cards true to the original.",
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 28,
@@ -504,7 +462,6 @@ export const projects: Project[] = [
       en: 'A "Sillage" game data editing tool that allows players to personalize their experience by editing maps and sharing them easily.',
     },
     category: "software",
-    live: null,
   },
   {
     id: 29,
@@ -521,7 +478,6 @@ export const projects: Project[] = [
       en: "A service for collecting error logs and performance metrics for multiple projects, providing a centralized, secure, real-time solution for tracking them.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 30,
@@ -538,7 +494,6 @@ export const projects: Project[] = [
       en: "An executable and API that makes it easy to install and use JDO video game tools, providing a plug and play experience for end users.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 31,
@@ -555,7 +510,6 @@ export const projects: Project[] = [
       en: "A secure web platform to manage cryptocurrency donations (Air-drop) in a transparent and organized manner, while guaranteeing the security of transactions and user confidentiality.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 32,
@@ -572,7 +526,6 @@ export const projects: Project[] = [
       en: "A platform offering users two separate crypto accounts, one for savings and the other for financial transactions, with an initial vision of tax exemption.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 33,
@@ -623,7 +576,6 @@ export const projects: Project[] = [
       en: "An interactive text game where the character must investigate a party after a total blackout.",
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 36,
@@ -640,7 +592,6 @@ export const projects: Project[] = [
       en: "A game where the player destroys towers using unlocked robots, with progression and improvement features.",
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 37,
@@ -658,7 +609,6 @@ export const projects: Project[] = [
       en: "A real-time chat app with private conversation and profile customization features.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 38,
@@ -675,7 +625,6 @@ export const projects: Project[] = [
       en: "A website that allows users to ask anonymous questions on Twitter and receive anonymous responses, with profile customization and answer voting features.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 39,
@@ -692,7 +641,6 @@ export const projects: Project[] = [
       en: "A website that automatically aggregates my travel posts from social media for easy navigation.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 40,
@@ -709,7 +657,6 @@ export const projects: Project[] = [
       en: "A set of Discord bots to automate various community management tasks, including moderation and vote collection.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 41,
@@ -726,7 +673,6 @@ export const projects: Project[] = [
       en: "A professional website to showcase my skills in service development, with an online quote request function.",
     },
     category: "web",
-    live: null,
   },
   {
     id: 42,
@@ -760,7 +706,6 @@ export const projects: Project[] = [
       en: "A software allowing trainees to access project tasks in a fun way as well as server status checking tools and development tools.",
     },
     category: "software",
-    live: null,
   },
   {
     id: 44,
@@ -777,7 +722,6 @@ export const projects: Project[] = [
       en: "A turn-based strategy video game. Everyone places their Heroes on the board and then an automatic resolution is launched.",
     },
     category: "videogame",
-    live: null,
   },
   {
     id: 45,
@@ -823,6 +767,5 @@ export const projects: Project[] = [
       en: "Hexamind is a mobile game that challenges players with color-based puzzles, offering multiple game modes, scores tracking, and detailed statistics.",
     },
     category: "mobile",
-    live: null,
   },
 ];

@@ -1,23 +1,12 @@
 "use client";
 
 import ProjectCard from "@/components/imported/project-card";
-
-type Project = {
-  id: string;
-  name: string;
-  description: string;
-  longDescription: string;
-  skills: string[];
-  link: string;
-  category: "Web" | "Software" | "Game" | "Mobile";
-  image: string;
-  additionalImages: string[];
-};
+import { Project } from "@/lib/project.type";
 
 type CategorySectionProps = {
   projects: Project[];
   onEditProject: (project: Project) => void;
-  onDeleteProject: (id: string) => void;
+  onDeleteProject: (id: number) => void;
   onViewProject: (project: Project) => void;
 };
 

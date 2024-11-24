@@ -11,18 +11,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
-
-type Project = {
-  id: string;
-  name: string;
-  description: string;
-  longDescription: string;
-  skills: string[];
-  link: string;
-  category: "Web" | "Software" | "Game" | "Mobile";
-  image: string;
-  additionalImages: string[];
-};
+import { Project } from "@/lib/project.type";
 
 type ProjectViewModalProps = {
   project: Project | null;
@@ -37,7 +26,12 @@ export default function ProjectViewModalComponent({
 
   if (!project) return null;
 
-  const images = [project.image, ...project.additionalImages];
+  const images = [
+    "/images/projects/" + project.image,
+    ...(project.images
+      ? project.images.map((c) => "/images/projects/details/" + c)
+      : []),
+  ];
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -81,14 +75,20 @@ export default function ProjectViewModalComponent({
             </Button>
           </div>
           <div className="space-y-4">
-            <div className="prose prose-sm prose-invert max-h-96 overflow-y-auto">
-              <ReactMarkdown>{project.longDescription}</ReactMarkdown>
+            <div className="prose prose-sm max-h-[40rem] p-4 overflow-y-auto">
+              <ReactMarkdown>{project.content.en}</ReactMarkdown>
             </div>
-            <Button asChild>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                Visit Project <ExternalLink className="ml-2 h-4 w-4" />
-              </a>
-            </Button>
+            {project.live && (
+              <Button asChild>
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visit Project <ExternalLink className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            )}
           </div>
         </div>
       </DialogContent>

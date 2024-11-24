@@ -14,18 +14,7 @@ import { Label } from "@/components/ui/label";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import ReactCrop, { Crop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-
-type Project = {
-  id: string;
-  name: string;
-  description: string;
-  longDescription: string;
-  skills: string[];
-  link: string;
-  category: "Web" | "Software" | "Game" | "Mobile";
-  image: string;
-  additionalImages: string[];
-};
+import { Project } from "@/lib/project.type";
 
 type ProjectModalProps = {
   isOpen: boolean;
@@ -41,15 +30,16 @@ export default function ProjectModalComponent({
   project,
 }: ProjectModalProps) {
   const [formData, setFormData] = useState<Project>({
-    id: "",
+    id: -1,
     name: "",
-    description: "",
-    longDescription: "",
+    description: { fr: "", en: "" },
+    content: { fr: "", en: "" },
     skills: [],
-    link: "",
-    category: "Web",
+    live: "",
+    category: "web",
+    time: "",
     image: "",
-    additionalImages: [],
+    images: [],
   });
 
   const [crop, setCrop] = useState<Crop>();
@@ -61,15 +51,16 @@ export default function ProjectModalComponent({
       setImageSource(project.image);
     } else {
       setFormData({
-        id: Date.now().toString(),
+        id: -1,
+        time: Date.now().toString(),
         name: "",
-        description: "",
-        longDescription: "",
+        description: { fr: "", en: "" },
+        content: { fr: "", en: "" },
         skills: [],
-        link: "",
-        category: "Web",
+        live: "",
+        category: "web",
         image: "",
-        additionalImages: [],
+        images: [],
       });
       setImageSource(null);
     }
@@ -138,7 +129,7 @@ export default function ProjectModalComponent({
                 <Textarea
                   id="description"
                   name="description"
-                  value={formData.description}
+                  value={formData.description.en}
                   onChange={handleChange}
                   placeholder="Short description"
                   required
@@ -151,7 +142,7 @@ export default function ProjectModalComponent({
                 <Textarea
                   id="longDescription"
                   name="longDescription"
-                  value={formData.longDescription}
+                  value={formData.content.en}
                   onChange={handleChange}
                   placeholder="Long description in Markdown"
                   required
@@ -163,7 +154,7 @@ export default function ProjectModalComponent({
                 <Input
                   id="skills"
                   name="skills"
-                  value={formData.skills.join(", ")}
+                  value={formData.skills?.join(", ")}
                   onChange={handleSkillsChange}
                   placeholder="Skills (comma-separated)"
                   required
@@ -174,7 +165,7 @@ export default function ProjectModalComponent({
                 <Input
                   id="link"
                   name="link"
-                  value={formData.link}
+                  value={formData.live}
                   onChange={handleChange}
                   placeholder="Project Link"
                   required
@@ -188,16 +179,16 @@ export default function ProjectModalComponent({
                   onValueChange={handleCategoryChange}
                   className="justify-start"
                 >
-                  <ToggleGroupItem value="Web" aria-label="Web">
+                  <ToggleGroupItem value="web" aria-label="Web">
                     Web
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Software" aria-label="Software">
+                  <ToggleGroupItem value="software" aria-label="Software">
                     Software
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Game" aria-label="Game">
+                  <ToggleGroupItem value="videogame" aria-label="Game">
                     Game
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Mobile" aria-label="Mobile">
+                  <ToggleGroupItem value="mobile" aria-label="Mobile">
                     Mobile
                   </ToggleGroupItem>
                 </ToggleGroup>
